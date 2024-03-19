@@ -43,6 +43,10 @@ namespace Kom_graphics_Laba_2
             textBox1.Text = "0";
             textBox3.Text = "0";
             returnBox.Checked = true;
+            degreesBox.Text = "0";
+            xBox.Text = "0";
+            yBox.Text = "0";
+
             setCurrpoint();
         }
         private void setCurrpoint()
@@ -98,6 +102,22 @@ namespace Kom_graphics_Laba_2
                 float a_float = (float)Convert.ToDouble(textBox3.Text);
                 yOffset(CurrectPoint, -dy*a_float);
             }
+            if (checkBoxX.Checked == true)
+            {
+                invertX(CurrectPoint);
+            }
+            if(checkBoxY.Checked == true)
+            {
+                invertY();
+            }
+            if (checkBoxXY.Checked == true)
+            {
+                invertXY();
+            }
+            if (degreesBox.Text != "0")
+            {
+
+            }
             Draw(ListToPoint(CurrectPoint));
         }
         private void xOffset(float[][] CurrectPoint,float offset)
@@ -133,6 +153,43 @@ namespace Kom_graphics_Laba_2
             {
                 e.Handled = true;
             }
+        }
+        private void invertX(float[][] CurrectPoint)
+        {
+            float tmp;
+            for (int i = 0; i < CurrectPoint.Length; i++)
+            {
+                tmp = y_center - CurrectPoint[i][1];
+                CurrectPoint[i][1] = y_center+tmp;
+            }
+        }
+        private void invertY()
+        {
+            float tmp;
+            for (int i = 0; i < CurrectPoint.Length; i++)
+            {
+                tmp = x_center - CurrectPoint[i][0];
+                CurrectPoint[i][0] = x_center + tmp;
+            }
+        }
+        private void invertXY()
+        {
+            float tmp; 
+            for (int i = 0; i < CurrectPoint.Length; i++)
+            {
+                tmp = CurrectPoint[i][0];
+                CurrectPoint[i][0] = CurrectPoint[i][1];
+                CurrectPoint[i][1] = tmp;
+            }
+        }
+
+        private void turnNull(float[][] CurrectPoint) 
+        { 
+
+        }
+        private void turn(float[][] CurrectPoint)
+        {
+
         }
         private PointF[] ListToPoint(float[][] arr)
         {

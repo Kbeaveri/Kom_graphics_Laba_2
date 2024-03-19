@@ -34,9 +34,18 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxX = new System.Windows.Forms.CheckBox();
+            this.checkBoxY = new System.Windows.Forms.CheckBox();
             this.returnBox = new System.Windows.Forms.CheckBox();
+            this.checkBoxXY = new System.Windows.Forms.CheckBox();
+            this.degreesBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.xBox = new System.Windows.Forms.TextBox();
+            this.yBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,25 +103,25 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Смещение по Y";
             // 
-            // checkBox1
+            // checkBoxX
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(1078, 116);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(225, 20);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Отображение относительно X";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxX.AutoSize = true;
+            this.checkBoxX.Location = new System.Drawing.Point(1078, 116);
+            this.checkBoxX.Name = "checkBoxX";
+            this.checkBoxX.Size = new System.Drawing.Size(225, 20);
+            this.checkBoxX.TabIndex = 10;
+            this.checkBoxX.Text = "Отображение относительно X";
+            this.checkBoxX.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxY
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(1077, 142);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(226, 20);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Отображение относительно Y";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxY.AutoSize = true;
+            this.checkBoxY.Location = new System.Drawing.Point(1077, 142);
+            this.checkBoxY.Name = "checkBoxY";
+            this.checkBoxY.Size = new System.Drawing.Size(226, 20);
+            this.checkBoxY.TabIndex = 11;
+            this.checkBoxY.Text = "Отображение относительно Y";
+            this.checkBoxY.UseVisualStyleBackColor = true;
             // 
             // returnBox
             // 
@@ -124,14 +133,99 @@
             this.returnBox.Text = "Вернуть исходный";
             this.returnBox.UseVisualStyleBackColor = true;
             // 
+            // checkBoxXY
+            // 
+            this.checkBoxXY.AutoSize = true;
+            this.checkBoxXY.Location = new System.Drawing.Point(1077, 168);
+            this.checkBoxXY.Name = "checkBoxXY";
+            this.checkBoxXY.Size = new System.Drawing.Size(234, 20);
+            this.checkBoxXY.TabIndex = 13;
+            this.checkBoxXY.Text = "Отображение относительно XY";
+            this.checkBoxXY.UseVisualStyleBackColor = true;
+            // 
+            // degreesBox
+            // 
+            this.degreesBox.Location = new System.Drawing.Point(1089, 247);
+            this.degreesBox.Name = "degreesBox";
+            this.degreesBox.Size = new System.Drawing.Size(100, 22);
+            this.degreesBox.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(992, 247);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 16);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Повернуть на ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1195, 250);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "градусов";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(992, 281);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 16);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Относительно точки";
+            // 
+            // xBox
+            // 
+            this.xBox.Location = new System.Drawing.Point(1140, 278);
+            this.xBox.Name = "xBox";
+            this.xBox.Size = new System.Drawing.Size(20, 22);
+            this.xBox.TabIndex = 18;
+            // 
+            // yBox
+            // 
+            this.yBox.Location = new System.Drawing.Point(1188, 278);
+            this.yBox.Name = "yBox";
+            this.yBox.Size = new System.Drawing.Size(20, 22);
+            this.yBox.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1166, 284);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 16);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "(x)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1214, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(22, 16);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "(y)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 634);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.yBox);
+            this.Controls.Add(this.xBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.degreesBox);
+            this.Controls.Add(this.checkBoxXY);
             this.Controls.Add(this.returnBox);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBoxY);
+            this.Controls.Add(this.checkBoxX);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox3);
@@ -154,9 +248,18 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBoxX;
+        private System.Windows.Forms.CheckBox checkBoxY;
         private System.Windows.Forms.CheckBox returnBox;
+        private System.Windows.Forms.CheckBox checkBoxXY;
+        private System.Windows.Forms.TextBox degreesBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox xBox;
+        private System.Windows.Forms.TextBox yBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 
