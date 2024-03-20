@@ -46,28 +46,30 @@ namespace Kom_graphics_Laba_2
             degreesBox.Text = "0";
             xBox.Text = "0";
             yBox.Text = "0";
+            ScaleX.Text = "0";
+            ScaleY.Text = "0";
 
             setCurrpoint();
         }
         private void setCurrpoint()
         {
-            CurrectPoint[0] = new[] { x_center, y_center, 1 };
-            CurrectPoint[1] = new[] { x_center + dx * 3, y_center + dy * -3, 1 };
-            CurrectPoint[2] = new[] { x_center + dx * 3, y_center + dy * -5, 1 };
-            CurrectPoint[3] = new[] { x_center + dx * 2, y_center + dy * -5, 1 };
-            CurrectPoint[4] = new[] { x_center + dx * 3, y_center + dy * -7, 1 };
-            CurrectPoint[5] = new[] { x_center + dx * 1, y_center + dy * -7, 1 };
-            CurrectPoint[6] = new[] { x_center + dx * 0, y_center + dy * -9, 1 };
-            CurrectPoint[7] = new[] { x_center + dx * -1, y_center + dy * -7, 1 };
-            CurrectPoint[8] = new[] { x_center + dx * -3, y_center + dy * -7, 1 };
-            CurrectPoint[9] = new[] { x_center + dx * -2, y_center + dy * -5, 1 };
-            CurrectPoint[10] = new[] { x_center + dx * -3, y_center + dy * -5, 1 };
-            CurrectPoint[11] = new[] { x_center + dx * -3, y_center + dy * -3, 1 };
-            CurrectPoint[12] = new[] { x_center, y_center, 1 };
-            CurrectPoint[13] = new[] { x_center + dx * 3, y_center + dy * -3, 1 };
-            CurrectPoint[14] = new[] { x_center + dx * -3, y_center + dy * -3, 1 };
-            CurrectPoint[15] = new[] { x_center + dx * -3, y_center + dy * -5, 1 };
-            CurrectPoint[16] = new[] { x_center + dx * 3, y_center + dy * -5, 1 };
+            CurrectPoint[0] = new[] { 0F, 0F, 1 };
+            CurrectPoint[1] = new[] {3F, 3F, 1 };
+            CurrectPoint[2] = new[] { 3F, 5F, 1 };
+            CurrectPoint[3] = new[] {  2F, 5, 1 };
+            CurrectPoint[4] = new[] { 3F, 7F, 1 };
+            CurrectPoint[5] = new[] { 1F, 7F, 1 };
+            CurrectPoint[6] = new[] { 0F, 9F, 1 };
+            CurrectPoint[7] = new[] {  -1F, 7F, 1 };
+            CurrectPoint[8] = new[] { -3F, 7F, 1 };
+            CurrectPoint[9] = new[] { -2F, 5F, 1 };
+            CurrectPoint[10] = new[] { -3F, 5F, 1 };
+            CurrectPoint[11] = new[] { -3F, 3F, 1 };
+            CurrectPoint[12] = new[] { 0F, 0F, 1 };
+            CurrectPoint[13] = new[] { 3F, 3F, 1 };
+            CurrectPoint[14] = new[] { -3F,3F, 1 };
+            CurrectPoint[15] = new[] { -3F,5F, 1 };
+            CurrectPoint[16] = new[] { 3F, 5F, 1 };
         }
         public void Draw(PointF[] CurrectPoint)
         {
@@ -95,12 +97,12 @@ namespace Kom_graphics_Laba_2
             if (textBox1.Text != "" && textBox1.Text != "0")
             {
                 float a_float = (float)Convert.ToDouble(textBox1.Text);
-                xOffset(CurrectPoint,dx*a_float);
+                xOffset(CurrectPoint,a_float);
             }
             if (textBox3.Text != "" && textBox3.Text != "0")
             {
                 float a_float = (float)Convert.ToDouble(textBox3.Text);
-                yOffset(CurrectPoint, -dy*a_float);
+                yOffset(CurrectPoint, a_float);
             }
             if (checkBoxX.Checked == true)
             {
@@ -117,6 +119,16 @@ namespace Kom_graphics_Laba_2
             if (degreesBox.Text != "0")
             {
                 RotatedPoint(CurrectPoint);
+            }
+            if (ScaleX.Text != "0")
+            {
+                float a_float = (float)Convert.ToDouble(ScaleX.Text);
+                scaleX(a_float);
+            }
+            if (ScaleY.Text != "0")
+            {
+                float a_float = (float)Convert.ToDouble(ScaleY.Text);
+                scaleY(a_float);
             }
             Draw(ListToPoint(CurrectPoint));
         }
@@ -156,20 +168,16 @@ namespace Kom_graphics_Laba_2
         }
         private void invertX(float[][] CurrectPoint)
         {
-            float tmp;
             for (int i = 0; i < CurrectPoint.Length; i++)
             {
-                tmp = y_center - CurrectPoint[i][1];
-                CurrectPoint[i][1] = y_center+tmp;
+                CurrectPoint[i][1] = -CurrectPoint[i][1];
             }
         }
         private void invertY()
         {
-            float tmp;
             for (int i = 0; i < CurrectPoint.Length; i++)
             {
-                tmp = x_center - CurrectPoint[i][0];
-                CurrectPoint[i][0] = x_center + tmp;
+                CurrectPoint[i][0] =-CurrectPoint[i][0];
             }
         }
         private void invertXY()
@@ -178,25 +186,17 @@ namespace Kom_graphics_Laba_2
             for (int i = 0; i < CurrectPoint.Length; i++)
             {
                 tmp = CurrectPoint[i][0];
-                CurrectPoint[i][0] = -CurrectPoint[i][1] ;
-                CurrectPoint[i][1] = -tmp;
+                CurrectPoint[i][0] = CurrectPoint[i][1] ;
+                CurrectPoint[i][1] = tmp;
             }
         }
 
-        private void turnNull(float[][] CurrectPoint) 
-        { 
-
-        }
-        private void turn(float[][] CurrectPoint)
-        {
-
-        }
         private PointF[] ListToPoint(float[][] arr)
         {
             PointF[] result = new PointF[arr.Length];
             for (int i = 0;i <arr.Length;i++)
             {
-                result [i] = new PointF(arr[i][0], arr[i][1]);
+                result [i] = new PointF(x_center + arr[i][0] * dx, y_center + arr[i][1]* -dy);
             }
             return result;
         }
@@ -204,14 +204,28 @@ namespace Kom_graphics_Laba_2
         private void RotatedPoint(float[][] CurrectPoint)
         {
             double Radian = Convert.ToDouble(degreesBox.Text)*Math.PI / 180;
-            float x0 = x_center + (float)Convert.ToDouble(xBox.Text) * dx;
-            float y0 = y_center +(float)Convert.ToDouble(yBox.Text) * -dy ;
+            float x0 = (float)Convert.ToDouble(xBox.Text);
+            float y0 = (float)Convert.ToDouble(yBox.Text);
             for (int i = 0;i < CurrectPoint.Length; i++)
             {
                 float X = (float)(((CurrectPoint[i][0]) - x0) * Math.Cos(Radian) - (CurrectPoint[i][1] - y0) * Math.Sin(Radian) + x0);
                 float Y = (float)(((CurrectPoint[i][0]) - x0) * Math.Sin(Radian) + (CurrectPoint[i][1] - y0) * Math.Cos(Radian) + y0);
                 CurrectPoint[i][0] = X;
                 CurrectPoint[i][1] = Y;
+            }
+        }
+        private void scaleX(float Scale)
+        {
+            for (int i = 0; i < CurrectPoint.Length; i++)
+            {
+                CurrectPoint[i][0] = Scale*CurrectPoint[i][0];
+            }
+        }
+        private void scaleY(float Scale)
+        {
+            for (int i = 0; i < CurrectPoint.Length; i++)
+            {
+                CurrectPoint[i][1] = Scale * CurrectPoint[i][1];
             }
         }
     }
