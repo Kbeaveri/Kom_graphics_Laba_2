@@ -116,7 +116,7 @@ namespace Kom_graphics_Laba_2
             }
             if (degreesBox.Text != "0")
             {
-
+                RotatedPoint(CurrectPoint);
             }
             Draw(ListToPoint(CurrectPoint));
         }
@@ -174,12 +174,12 @@ namespace Kom_graphics_Laba_2
         }
         private void invertXY()
         {
-            float tmp; 
+            float tmp;
             for (int i = 0; i < CurrectPoint.Length; i++)
             {
                 tmp = CurrectPoint[i][0];
-                CurrectPoint[i][0] = CurrectPoint[i][1];
-                CurrectPoint[i][1] = tmp;
+                CurrectPoint[i][0] = -CurrectPoint[i][1] ;
+                CurrectPoint[i][1] = -tmp;
             }
         }
 
@@ -199,6 +199,20 @@ namespace Kom_graphics_Laba_2
                 result [i] = new PointF(arr[i][0], arr[i][1]);
             }
             return result;
+        }
+
+        private void RotatedPoint(float[][] CurrectPoint)
+        {
+            double Radian = Convert.ToDouble(degreesBox.Text)*Math.PI / 180;
+            float x0 = x_center + (float)Convert.ToDouble(xBox.Text) * dx;
+            float y0 = y_center +(float)Convert.ToDouble(yBox.Text) * -dy ;
+            for (int i = 0;i < CurrectPoint.Length; i++)
+            {
+                float X = (float)(((CurrectPoint[i][0]) - x0) * Math.Cos(Radian) - (CurrectPoint[i][1] - y0) * Math.Sin(Radian) + x0);
+                float Y = (float)(((CurrectPoint[i][0]) - x0) * Math.Sin(Radian) + (CurrectPoint[i][1] - y0) * Math.Cos(Radian) + y0);
+                CurrectPoint[i][0] = X;
+                CurrectPoint[i][1] = Y;
+            }
         }
     }
 }
